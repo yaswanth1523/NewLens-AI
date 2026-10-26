@@ -1,0 +1,49 @@
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+models/.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local datasets and generated reports
+*.csv
+!evaluation/
+!evaluation/bbc_news_evaluation_report.csv
+!evaluation/bbc_news_confusion_matrix.csv
+*.xlsx
+*.parquet
+
+# Local model training artifacts
+*.pkl
+*.pickle
+
+# Keep the trained model required by the application
+!models/bbc_news_naive_bayes_pipeline.joblib
