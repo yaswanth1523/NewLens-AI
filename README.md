@@ -6,6 +6,28 @@ A machine learning web application that classifies news articles into five categ
 
 NewsLens AI allows users to enter a news article and receive a predicted category along with estimated class probabilities.
 
+
+## 🚀 Live Demo
+
+**Try NewsLens AI:** [Open the live application]((https://newlens-ai-lewzy6n6hwu3ajjck5ikdh.streamlit.app/))
+
+Classify news articles into five categories using Machine Learning and Natural Language Processing (NLP):
+
+- Business
+- Entertainment
+- Politics
+- Sport
+- Technology
+
+### ✨ Try It Yourself
+
+1. Open the live application using the link above.
+2. Navigate to **Classify News**.
+3. Select a sample article or paste your own news article.
+4. Click **Classify Article** to get the predicted category.
+5. Explore the estimated class probabilities and model evaluation results.
+
+
 ### Supported Categories
 
 - Business
