@@ -9,7 +9,7 @@ NewsLens AI allows users to enter a news article and receive a predicted categor
 
 ## 🚀 Live Demo
 
-**Try NewsLens AI:** [Open the live application]((https://newlens-ai-lewzy6n6hwu3ajjck5ikdh.streamlit.app/))
+**Try NewsLens AI:** [Open the live application](https://newlens-ai-lewzy6n6hwu3ajjck5ikdh.streamlit.app/)
 
 Classify news articles into five categories using Machine Learning and Natural Language Processing (NLP):
 
