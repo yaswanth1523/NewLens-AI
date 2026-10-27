@@ -1,34 +1,18 @@
-# NewsLens AI — BBC News Classifier
+# 📰 NewsLens AI — BBC News Article Classifier
 
-A machine learning web application that classifies news articles into five categories using Natural Language Processing (NLP) and a Multinomial Naive Bayes model.
-
-## Overview
-
-NewsLens AI allows users to enter a news article and receive a predicted category along with estimated class probabilities.
-
+An end-to-end Machine Learning application that classifies BBC news articles into five categories using Natural Language Processing (NLP) and Multinomial Naive Bayes. Built with Scikit-learn and Streamlit, the application provides real-time predictions, estimated class probabilities, and model evaluation insights through an interactive web interface.
 
 ## 🚀 Live Demo
 
-**Try NewsLens AI:** [Open the live application](https://newlens-ai-lewzy6n6hwu3ajjck5ikdh.streamlit.app/)
+**Streamlit App:** [Open NewsLens AI](https://newlens-ai-lewzy6n6hwu3ajjck5ikdh.streamlit.app/)
 
-Classify news articles into five categories using Machine Learning and Natural Language Processing (NLP):
+> Replace the URL above with your actual deployed Streamlit Community Cloud URL.
 
-- Business
-- Entertainment
-- Politics
-- Sport
-- Technology
+## 📌 Project Overview
 
-### ✨ Try It Yourself
+NewsLens AI automatically categorizes news articles based on their textual content. The project demonstrates an end-to-end text classification workflow, from data preparation and model evaluation to deployment as an interactive web application.
 
-1. Open the live application using the link above.
-2. Navigate to **Classify News**.
-3. Select a sample article or paste your own news article.
-4. Click **Classify Article** to get the predicted category.
-5. Explore the estimated class probabilities and model evaluation results.
-
-
-### Supported Categories
+The model predicts one of five categories:
 
 - Business
 - Entertainment
@@ -36,102 +20,201 @@ Classify news articles into five categories using Machine Learning and Natural L
 - Sport
 - Technology
 
-## Features
+## ✨ Features
 
-- Interactive Streamlit interface
-- News article classification
-- Predicted category and estimated class probabilities
-- Article statistics, including word count and reading time
-- Class probability visualization
-- Model evaluation metrics and confusion matrix
-- Downloadable evaluation report in CSV format
+- **News Classification:** Predicts the category of a news article from its text.
+- **Sample Articles:** Test the application using sample news articles.
+- **Class Probabilities:** Displays the model's estimated probability for each category.
+- **Text Statistics:** Shows word count, character count, and estimated reading time.
+- **Model Evaluation:** Displays accuracy, precision, recall, and F1-score.
+- **Category-Level Analysis:** Provides a per-category performance report.
+- **Confusion Matrix:** Visualizes correct predictions and classification errors.
+- **Downloadable Reports:** Download model evaluation results and confusion matrix data as CSV files.
+- **Interactive Interface:** Navigate between Home, Classify News, and Model Information pages.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Language:** Python
-- **Machine Learning:** scikit-learn, Multinomial Naive Bayes
-- **NLP:** CountVectorizer with unigram and bigram features
-- **Data Handling:** Pandas, NumPy
-- **Visualization:** Matplotlib
-- **Web Application:** Streamlit
-- **Model Persistence:** Joblib
+| Technology | Purpose |
+|---|---|
+| Python | Programming language |
+| Pandas | Data manipulation and analysis |
+| NumPy | Numerical operations |
+| Scikit-learn | Model training, preprocessing, and evaluation |
+| CountVectorizer | Converts text into numerical features |
+| Multinomial Naive Bayes | News classification algorithm |
+| Matplotlib | Data visualization |
+| Streamlit | Interactive web application |
+| Joblib | Saving and loading the trained model |
+| Git and GitHub | Version control and project hosting |
+| Streamlit Community Cloud | Application deployment |
 
-## Model Performance
+## 🧠 Machine Learning Workflow
 
-The trained model's recorded evaluation results are:
+1. **Data Collection:** Loaded the BBC news dataset containing 2,224 articles.
+2. **Data Cleaning:** Removed duplicate records, resulting in 2,126 articles.
+3. **Text Preprocessing:** Prepared article text for feature extraction.
+4. **Feature Extraction:** Used CountVectorizer with unigram and bigram features.
+5. **Train-Test Split:** Divided the dataset into 1,700 training records and 426 testing records.
+6. **Model Selection:** Evaluated Multinomial Naive Bayes configurations using five-fold cross-validation.
+7. **Hyperparameter Tuning:** Selected `ngram_range=(1, 2)` and `alpha=0.1`.
+8. **Model Evaluation:** Evaluated classification performance using accuracy, precision, recall, F1-score, and a confusion matrix.
+9. **Model Persistence:** Saved the trained pipeline using Joblib.
+10. **Deployment:** Integrated the saved pipeline into a Streamlit application and deployed it to Streamlit Community Cloud.
 
-| Metric | Score |
+## 📊 Dataset Information
+
+| Metric | Value |
 |---|---:|
-| Test accuracy | 97.65% |
+| Original articles | 2,224 |
+| Articles after duplicate removal | 2,126 |
+| Training records | 1,700 |
+| Testing records | 426 |
+| Number of categories | 5 |
+
+### Category Distribution
+
+| Category | Articles |
+|---|---:|
+| Sport | 504 |
+| Business | 503 |
+| Politics | 403 |
+| Entertainment | 369 |
+| Technology | 347 |
+| **Total** | **2,126** |
+
+## 📈 Model Performance
+
+The selected model achieved the following results on the test dataset.
+
+| Evaluation Metric | Score |
+|---|---:|
+| Accuracy | 97.65% |
+| Macro Precision | 97.60% |
+| Macro Recall | 97.69% |
 | Macro F1-score | 97.63% |
-| Best mean cross-validation macro F1-score | 97.20% |
+| Best mean cross-validation Macro F1-score | 97.20% |
 
-Sport achieved an F1-score of approximately 99.50% on the recorded test set.
+### Per-Category Performance
 
-**Evaluation note:** The test set was used in earlier model comparisons. These results may therefore be optimistic and should not be interpreted as an untouched final benchmark or a guarantee of performance on new articles.
+| Category | Precision | Recall | F1-score |
+|---|---:|---:|---:|
+| Business | 96.97% | 95.05% | 96.00% |
+| Entertainment | 100.00% | 97.30% | 98.63% |
+| Politics | 95.29% | 100.00% | 97.59% |
+| Sport | 100.00% | 99.01% | 99.50% |
+| Technology | 95.71% | 97.10% | 96.40% |
 
-## Project Structure
+**Interpretation:** The model correctly classified 416 out of 426 test articles. Its overall results indicate strong performance across all five categories, with some remaining classification errors between business, politics, and technology articles.
+
+**Evaluation limitation:** The test set was also used in earlier model comparisons during development. Consequently, the reported test performance may be optimistic and should not be interpreted as a completely independent final estimate of generalization performance. A fresh holdout set would provide a stronger assessment.
+
+## 📁 Project Structure
 
 ```text
-bbc-news-classifier/
+NewLens-AI/
+│
 ├── app.py
-├── requirements.txt
 ├── README.md
+├── requirements.txt
+├── .gitignore
+│
 ├── models/
 │   └── bbc_news_naive_bayes_pipeline.joblib
+│
+├── evaluation/
+│   ├── bbc_news_evaluation_report.csv
+│   └── bbc_news_confusion_matrix.csv
+│
 └── .streamlit/
 ```
 
-## Run Locally
+## ⚙️ Run the Project Locally
+
+### Prerequisites
+
+- Python 3.12
+- Git
+- pip
 
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd bbc-news-classifier
+git clone https://github.com/yaswanth1523/NewLens-AI.git
+cd NewLens-AI
 ```
 
-Replace `YOUR_GITHUB_REPOSITORY_URL` with your actual repository URL.
-
-### 2. Create and activate a virtual environment
-
-On Windows:
+### 2. Create a virtual environment
 
 ```bash
 python -m venv .venv
+```
+
+### 3. Activate the virtual environment
+
+**Windows — Command Prompt:**
+
+```cmd
 .venv\Scripts\activate
 ```
 
-### 3. Install dependencies
+**Windows — PowerShell:**
 
-```bash
-python -m pip install -r requirements.txt
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
 
-### 4. Start the application
+### 4. Install dependencies
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 5. Run the Streamlit application
 
 ```bash
 streamlit run app.py
 ```
 
-Open the local URL displayed in the terminal.
+The application should open in your browser. If it does not, open the local URL displayed in your terminal, usually `http://localhost:8501`.
 
-## Limitations
+## 📦 Saved Model
 
-- Predictions depend on the training data and vocabulary learned by the model.
-- Articles from unfamiliar domains or with ambiguous content may be misclassified.
-- Class probabilities are model estimates, not guaranteed measures of correctness.
-- Recorded evaluation results may not represent performance on completely unseen data.
+The trained pipeline is stored at:
 
-## Future Improvements
+```text
+models/bbc_news_naive_bayes_pipeline.joblib
+```
 
-- Evaluate the model on a new, untouched test set.
-- Add more diverse news sources and articles.
-- Compare Naive Bayes with other text classification algorithms.
-- Deploy the application to a public hosting platform.
+The pipeline combines CountVectorizer text feature extraction with Multinomial Naive Bayes classification. Saving the pipeline allows the application to load the trained model and make predictions without retraining it every time the application starts.
 
-## Author
+**Important:** The serialized model should be loaded in a compatible Python and Scikit-learn environment. The project pins dependency versions in `requirements.txt` to support reproducibility.
+
+## 🌐 Deployment
+
+The application is deployed using **Streamlit Community Cloud** and hosted in the GitHub repository.
+
+To deploy your own copy:
+
+1. Push the project files to GitHub.
+2. Sign in to Streamlit Community Cloud.
+3. Create a new app and select the repository, branch, and `app.py` entry point.
+4. Deploy the application.
+5. Test the classification page, evaluation metrics, charts, and CSV downloads.
+
+## 🔮 Future Improvements
+
+- Evaluate the model using a fresh, untouched test dataset.
+- Compare Multinomial Naive Bayes with Logistic Regression, Linear SVM, and other text classification models.
+- Explore TF-IDF features and more advanced NLP techniques.
+- Add confidence interpretation and guidance for short or ambiguous articles.
+- Expand the application to support additional news categories.
+- Add automated tests and continuous integration for improved reliability.
+
+## 👨‍💻 Author
 
 **Yaswanth Kumar Reddy M**
 
-Machine Learning and Data Science Portfolio Project
+- **GitHub:** [yaswanth1523](https://github.com/yaswanth1523)
+- **Project Repository:** [NewLens-AI](https://github.com/yaswanth1523/NewLens-AI)
+- **LinkedIn:** [Add your LinkedIn profile URL](https://www.linkedin.com/)
