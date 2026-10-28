@@ -217,4 +217,4 @@ To deploy your own copy:
 
 - **GitHub:** [yaswanth1523](https://github.com/yaswanth1523)
 - **Project Repository:** [NewLens-AI](https://github.com/yaswanth1523/NewLens-AI)
-- **LinkedIn:** [LinkedIn profile](www.linkedin.com/in/yaswanth-reddy-m-6421b4375)
+- **LinkedIn:** [LinkedIn profile](https://www.linkedin.com/in/yaswanth-reddy-m-6421b4375/)
